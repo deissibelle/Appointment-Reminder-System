@@ -3,3 +3,7 @@
 
 # Ignorer les dossiers de dépendances
 /node_modules
+
+#Ignorer les fichiers
+Appointment.js
+appointment.js

@@ -29,17 +29,33 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
 
-        const otp = Math.floor(100000 + Math.random() * 900000); // Générer un OTP
+        // Vérifier si un OTP existe et s'il est encore valide
+        const currentTime = new Date();
+        if (user.otp && user.otpExpiresAt > currentTime) {
+            return res.json({ success: true, message: 'OTP already sent and is still valid.' });
+        }
+
+        //le code générera un nouvel OTP et définir une expiration de 30 minutes
+        const otp = Math.floor(100000 + Math.random() * 900000);
+        const otpExpiresAt = new Date(currentTime.getTime() + 30 * 60000); // 30 minutes
+
+        // Mettre à jour l'OTP et l'expiration dans la base de données
+        user.otp = otp;
+        user.otpExpiresAt = otpExpiresAt;
+        await user.save();
+
+        // Envoyer le nouvel OTP par SMS
         await client.messages.create({
             body: `Your OTP is ${otp}`,
             from: process.env.TWILIO_PHONE_NUMBER,
             to: user.phone,
-        }); 
+        });
 
         res.json({ success: true, message: 'OTP sent to your phone.', otp });
     } catch (error) {
         res.status(500).json({ message: 'Server error' });
     }
 });
+
 
 export default router;
