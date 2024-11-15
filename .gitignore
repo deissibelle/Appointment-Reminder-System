@@ -1,11 +1,11 @@
 # Ignorer les fichiers de configuration générés par l'IDE
-.idea/
-.vscode/
+.idea
+.vscode
 
 # Ignorer les dossiers node_modules dans le backend et le frontend
-appointment-reminder-backend/node_modules/
-fappointment-reminder-frontend/node_modules/
+/appointment-reminder-backend/node_modules
+/fappointment-reminder-frontend/node_modules
 
 # Ignorer les fichiers d'environnement
-appointment-reminder-backend/.env
-appointment-reminder-frontend/.env
+/appointment-reminder-backend/.env
+/appointment-reminder-frontend/.env

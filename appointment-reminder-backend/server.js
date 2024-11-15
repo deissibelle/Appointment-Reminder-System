@@ -1,10 +1,10 @@
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const dotenv = require('dotenv');
-const connectDB = require('./config/db');
-const authRoutes = require('./routes/auth');
-const appointmentRoutes = require('./routes/appointments');
+import express from 'express';
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
+import connectDB from './config/db.js'; // Assurez-vous d'ajouter l'extension .js
+import authRoutes from './routes/auth.js'; // Assurez-vous d'ajouter l'extension .js
+import appointmentRoutes from './routes/appointments.js'; // Assurez-vous d'ajouter l'extension .js
 
 // Charger les variables d'environnement
 dotenv.config();

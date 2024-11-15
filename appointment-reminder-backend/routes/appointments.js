@@ -1,5 +1,5 @@
-const express = require('express');
-const Appointment = require('../models/Appointment');
+import express from 'express';
+import Appointment from '../models/Appointment.js'; // N'oubliez pas d'ajouter l'extension .js
 
 const router = express.Router();
 
@@ -26,4 +26,4 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

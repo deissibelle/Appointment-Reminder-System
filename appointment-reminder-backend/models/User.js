@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // Schéma pour les utilisateurs
 const UserSchema = new mongoose.Schema({
@@ -8,4 +8,4 @@ const UserSchema = new mongoose.Schema({
 });
 
 // Exporter le modèle User
-module.exports = mongoose.model('User', UserSchema);
+export default mongoose.model('User', UserSchema);

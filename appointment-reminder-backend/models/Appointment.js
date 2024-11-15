@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // Schéma pour les rendez-vous
 const AppointmentSchema = new mongoose.Schema({
@@ -9,4 +9,4 @@ const AppointmentSchema = new mongoose.Schema({
 });
 
 // Exporter le modèle Appointment
-module.exports = mongoose.model('Appointment', AppointmentSchema);
+export default mongoose.model('Appointment', AppointmentSchema);
